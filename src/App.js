@@ -125,7 +125,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       async function getMovieDetails() {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+          `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
         );
         const data = await res.json();
         setMovie(data);
@@ -245,22 +245,6 @@ function Search({ query, setQuery }) {
     inputEl.current.focus();
     setQuery("");
   });
-  // useEffect(() => {
-  //   // console.log(inputEl.current);
-  //   console.log("birth");
-  //   function callBack(e) {
-  //     if (document.activeElement === inputEl.current) return;
-  //     if (e.code === "Enter") {
-  //       inputEl.current.focus();
-  //       setQuery("");
-  //     }
-  //   }
-  //   document.addEventListener("keydown", callBack);
-  //   return () => {
-  //     console.log("death");
-  //     document.removeEventListener("keydown", callBack);
-  //   };
-  // }, [setQuery]);
   return (
     <input
       className="search"
